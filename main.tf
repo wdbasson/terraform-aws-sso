@@ -106,4 +106,8 @@ resource "aws_ssoadmin_account_assignment" "this" {
 
   target_id   = each.value.account_id
   target_type = "AWS_ACCOUNT"
+
+  lifecycle {
+    ignore_changes = [instance_arn]
+  }
 }
